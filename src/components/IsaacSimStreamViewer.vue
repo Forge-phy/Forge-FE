@@ -30,9 +30,9 @@ const streamInfo = ref<{ width: number; height: number; fps: number } | null>(nu
 const videoElementId = 'isaac-sim-video'
 const audioElementId = 'isaac-sim-audio'
 
-// 기본 서버 설정 (AWS EC2)
+// 서버 설정 (환경변수 또는 현재 호스트 사용)
 const serverConfig = {
-  server: props.server || '43.203.146.84',
+  server: props.server || import.meta.env.VITE_ISAAC_STREAM_SERVER || window.location.hostname,
   signalingPort: props.signalingPort || 49100,
   mediaPort: props.mediaPort || 47998
 }
